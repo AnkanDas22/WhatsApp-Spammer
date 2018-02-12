@@ -2,11 +2,12 @@
 
 **REQUIREMENTS:**
 
-Python
+Python 3.x.x **->** Preferred 
+Python 2.x.x
 
 **MODULE INSTALLATION:**
 
-pip install selenium
+    pip install selenium
 
 Run the script "whatsapp.py"
 
