@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+import pyautogui
 
 driver = webdriver.Chrome()
 driver.get('http://web.whatsapp.com')
@@ -16,10 +17,11 @@ while True:
             
             user = driver.find_element_by_xpath('//span[@title = "{}"]'.format(name))
             user.click()
-            time.sleep(1)
-            msg_box = driver.find_element_by_xpath('//div[@class="pluggable-input-body copyable-text selectable-text"]')
+            time.sleep(2)
+            msg_box = pyautogui.locateCenterOnScreen('type.PNG')
+            pyautogui.moveTo(msg_box)
             for i in range(count):
-                msg_box.send_keys(msg)
+                pyautogui.typewrite(msg)
                 try:
                     driver.find_element_by_xpath('//span[@data-icon="send"]').click()
                 except:
@@ -41,10 +43,12 @@ while True:
             for i in listx:
                 userx = driver.find_element_by_xpath('//span[@title = "{}"]'.format(i))
                 userx.click()
-                msg_boxx = driver.find_element_by_xpath('//div[@class="pluggable-input-body copyable-text selectable-text"]')
-                time.sleep(1)
+                time.sleep(2)
+                msg_boxx = pyautogui.locateCenterOnScreen('type.PNG')
+                pyautogui.moveTo(msg_boxx)
+                pyautogui.click()
                 for j in range(countx):
-                    msg_boxx.send_keys(msgx)
+                    pyautogui.typewrite(msgx)
                     try:
                         driver.find_element_by_xpath('//button[@class="_2lkdt"]').click()
                     except:
@@ -56,13 +60,17 @@ while True:
             if(int(cho)==1):
                 msgz=input("Put your message here : ")
                 countz=int(input("Number of times you want to send the same message : "))
-                userx = driver.find_elements_by_xpath('//span[@class="_1wjpf"]')
+                userx = driver.find_elements_by_xpath('//div[@class="_2wP_Y"]')
+                #userx = driver.find_elements_by_xpath('//span[@class="_1wjpf"]')
+                #userx = driver.find_elements_by_xpath('//div[@style="z-index: 101; height: 72px; transform: translate3d(0px, 5616px, 0px);"]')
                 for i in userx:
                     i.click()
-                    msg_boxz = driver.find_element_by_xpath('//div[@class="pluggable-input-body copyable-text selectable-text"]')
-                    time.sleep(1)
+                    time.sleep(2)
+                    msg_boxx = pyautogui.locateCenterOnScreen('type.PNG')
+                    pyautogui.moveTo(msg_boxx)
+                    pyautogui.click()
                     for j in range(countz):
-                        msg_boxz.send_keys(msgz)
+                        pyautogui.typewrite(msgz)
                         try:
                             driver.find_element_by_xpath('//button[@class="_2lkdt"]').click()
                         except:
